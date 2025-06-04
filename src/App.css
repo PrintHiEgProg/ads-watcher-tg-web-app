@@ -1,0 +1,435 @@
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-bg: #1a1a2e;
+  --secondary-bg: #16213e;
+  --card-bg: rgba(42, 42, 74, 0.95);
+  --border-color: #3a3a5a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0c0;
+  --accent: #4cc9f0;
+  --button-bg: #4361ee;
+  --button-hover: #3a56d4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+  min-height: 100vh;
+  color: var(--text-primary);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  max-width: 28rem;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header-card {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 28rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.5rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+.balance-info {
+  flex-grow: 1;
+}
+
+.balance-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.1rem;
+  white-space: nowrap;
+}
+
+.balance-info p {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.level-badge {
+  background-color: rgba(76, 201, 240, 0.2);
+  color: var(--accent);
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(76, 201, 240, 0.3);
+  align-self: start;
+  justify-self: start;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.level-badge::before {
+  font-size: 0.6rem;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: start;
+  justify-self: end;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.profile-pic {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 8px rgba(76, 201, 240, 0.3);
+}
+
+.instruction {
+  margin-bottom: 3vh;
+  text-align: center;
+  font-size: 4vw;
+  color: var(--text-primary);
+  opacity: 0.9;
+  padding-top: 5rem;
+  font-weight: 700;
+  animation: floatBounce 2s infinite ease-in-out;
+  transform-origin: center bottom;
+  cursor: pointer;
+  position: relative;
+}
+
+@keyframes floatBounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(-12px);
+    animation-timing-function: ease-in;
+  }
+}
+
+/* Дополнительный эффект при наведении */
+.instruction:hover {
+  animation: floatBounceHover 1.5s infinite ease-in-out;
+  color: var(--accent);
+}
+
+@keyframes floatBounceHover {
+  0%, 100% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+/* Эффект "стрелки" вниз */
+.instruction::after {
+  display: block;
+  font-size: 2.5vw;
+  margin-top: 0.5rem;
+  opacity: 0.7;
+  animation: arrowPulse 2s infinite;
+}
+
+@keyframes arrowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+}
+
+.ad-card {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+}
+
+.ad-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ad-image {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+.ad-content h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.ad-content p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.action-button {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem 0;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-button:hover {
+  background-color: rgba(67, 97, 238, 0.1);
+  border-color: var(--accent);
+}
+
+.highlight-card {
+  background-color: var(--card-bg);
+  border-radius: 5px;
+  padding: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.offer-card {
+  height: 10vh;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.offer-image {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.offer-content h4 {
+  color: black;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.offer-content p {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.75rem;
+}
+
+.claim-button {
+  background-color: var(--button-bg);
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.claim-button:hover {
+  background-color: var(--button-hover);
+}
+
+.nav-bar {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 28rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.nav-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(76, 201, 240, 0.3);
+}
+
+.nav-icon i {
+  font-size: 1.25rem;
+}
+
+.home-icon {
+  background: linear-gradient(135deg, #a87fff, #ff7fff);
+  color: white;
+}
+
+.nav-icon.gradient-bg {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.nav-icon.gradient-bg:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.gradient-purple {
+  background: linear-gradient(135deg, #8a2be2, #9370db) !important;
+}
+
+.gradient-pink {
+  background: linear-gradient(135deg, #ff7fff, #dda0dd) !important;
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #1e90ff, #87cefa) !important;
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #3cb371, #90ee90) !important;
+}
+
+.gradient-orange {
+  background: linear-gradient(135deg, #ffa500, #ffd700) !important;
+}
+
+.content-wrapper {
+  width: 100%;
+  padding-bottom: 5rem;
+}
+
+.ad-progress {
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-top: 0.25rem;
+}
+
+.balance {
+  font-size: 4.5vw;
+}
+
+.profile .name {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.fish-balance {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  align-self: end;
+  justify-self: start;
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.fish-balance::before {
+  content: "";
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234cc9f0"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/></svg>');
+  background-size: contain;
+}
+
+.usdt-balance {
+  font-size: 1.1rem;
+  font-weight: 700;
+  align-self: end;
+  justify-self: end;
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.usdt-balance::after {
+  content: "USDT";
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-left: 0.2rem;
+}
+
+.application {
+  margin-top: 6vh;
+}
