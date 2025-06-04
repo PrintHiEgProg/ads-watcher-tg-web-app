@@ -1,47 +1,43 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  return (
-    <>
-      <p className="instruction">👇 Кликай по баннеру и получай награду 👇</p>
+  const navigate = useNavigate();
 
-      {/* Ad Card */}
-      <div className="ad-card">
-        <img
-          src="https://storage.googleapis.com/a1aa/image/dc6caaff-493a-46a9-4cf0-c453243d16c8.jpg"
-          alt="Advertisement"
-          className="ad-image"
-        />
-        <div className="ad-content">
-          <h3>АВТОШКОЛА ПРАВА ЗА НЕДЕЛЮ</h3>
-          <p>ВОДИТЕЛЬСКИЕ ПРАВА ОФОРМЛЕНИЕ</p>
+  return (
+    <div className="welcome-container">
+      <div className="welcome-content">
+        <h1 className="app-title">CoinEarn</h1>
+        <p className="app-description">
+          Зарабатывайте криптовалюту, просматривая рекламу и выполняя простые
+          задания
+        </p>
+
+        <button className="cta-button" onClick={() => navigate("/ads")}>
+          Смотреть рекламу ▶️
+        </button>
+      </div>
+
+      <div className="features-grid">
+        <div className="feature-card">
+          <div className="feature-icon">💰</div>
+          <h3>Быстрые выплаты</h3>
+          <p>Вывод средств в USDT и других криптовалютах</p>
+        </div>
+
+        <div className="feature-card">
+          <div className="feature-icon">🎮</div>
+          <h3>Игровые задания</h3>
+          <p>Зарабатывайте, играя в простые игры</p>
+        </div>
+
+        <div className="feature-card">
+          <div className="feature-icon">📈</div>
+          <h3>Система уровней</h3>
+          <p>Повышайте уровень для увеличения дохода</p>
         </div>
       </div>
-
-      {/* Button Grid */}
-      <div className="button-grid">
-        <button className="action-button">
-          Смотри
-          <br />
-          рекламу 5/20
-        </button>
-        <button className="action-button">
-          Смотри
-          <br />
-          рекламу 2/20
-        </button>
-        <button className="action-button">
-          Смотри
-          <br />
-          рекламу 2/20
-        </button>
-        <button className="action-button">
-          Смотри
-          <br />
-          рекламу 3/20
-        </button>
-      </div>
-    </>
+    </div>
   );
 };
 
