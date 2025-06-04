@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <div className="welcome-container">
       <div className="welcome-content">
-        <h1 className="app-title">CoinEarn</h1>
+        <h1 className="app-title">AdsCoin</h1>
         <p className="app-description">
           Зарабатывайте криптовалюту, просматривая рекламу и выполняя простые
           задания
