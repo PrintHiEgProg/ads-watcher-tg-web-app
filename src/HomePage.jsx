@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./WelcomePage.css";
 
-const HomePage = () => {
+const WelcomePage = () => {
   const navigate = useNavigate();
 
   return (
@@ -14,7 +15,8 @@ const HomePage = () => {
         </p>
 
         <button className="cta-button" onClick={() => navigate("/ads")}>
-          Смотреть рекламу ▶️
+          <span className="button-text">Смотреть рекламу</span>
+          <span className="button-icon">▶️</span>
         </button>
       </div>
 
@@ -41,4 +43,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default WelcomePage;
